@@ -1,5 +1,12 @@
 <p>Voting component</p>
-<p>Voted for photo {{votedFor}}</p>
+<p>
+  Current result:
+</p>  
+  <ul>
+    <li *ngFor="let photo of result">
+      {{photo.index}}
+    </li>
+  </ul>
 <app-photo-picker [photo1]="photo1"
                   [photo2]="photo2"
                   (votedForPhoto)="onVoted($event)">
