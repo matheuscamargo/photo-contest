@@ -12,6 +12,7 @@ export class VotingComponent implements OnInit {
   photos: Photo[];
   photo1: Photo;
   photo2: Photo;
+  votedFor: number;
 
   constructor(private photoService: PhotosService) { }
 
@@ -19,5 +20,10 @@ export class VotingComponent implements OnInit {
     this.photos = this.photoService.getPhotos();
     this.photo1 = this.photos[0];
     this.photo2 = this.photos[1];
+    this.votedFor = -1;
+  }
+
+  onVoted(photo: number) {
+    this.votedFor = photo;
   }
 }

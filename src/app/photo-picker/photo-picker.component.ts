@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Photo } from '../photo';
 
 @Component({
@@ -9,9 +9,17 @@ import { Photo } from '../photo';
 export class PhotoPickerComponent implements OnInit {
   @Input() photo1: Photo;
   @Input() photo2: Photo;
+  @Output() votedForPhoto = new EventEmitter<number>();
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  vote(photo: number) {
+    if (photo != 1 && photo != 2) {
+      return;
+    }
+
+    this.votedForPhoto.emit(photo);
   }
 }

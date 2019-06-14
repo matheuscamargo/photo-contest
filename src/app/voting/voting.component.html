@@ -1,2 +1,6 @@
 <p>Voting component</p>
-<app-photo-picker [photo1]="photo1" [photo2]="photo2"></app-photo-picker>
+<p>Voted for photo {{votedFor}}</p>
+<app-photo-picker [photo1]="photo1"
+                  [photo2]="photo2"
+                  (votedForPhoto)="onVoted($event)">
+</app-photo-picker>
