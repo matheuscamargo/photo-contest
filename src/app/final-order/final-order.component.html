@@ -2,12 +2,11 @@
   This is the resulting order based on your votes. The best photos are on the top and photos on the same level have the same score.
 </p>
 <p>
-  Press the button below to open your selected options in Google Forms and press submit to send your vote, login is required.
+  Follow the link below to open your selected options in Google Forms and press submit to send your vote, login is required.
 </p>
-
-<button>Open Google Forms</button>
-
-<p></p>
+<p>
+  <a href={{formLink}}>Open Google Forms</a>
+</p>
 
 <section class="non-inline-div" *ngFor="let photosWithSameScore of photos">
   <div class="inline-div" *ngFor="let photo of photosWithSameScore">
