@@ -1,12 +1,10 @@
-<p>
-  Current result:
-</p>  
-  <ul>
-    <li *ngFor="let photo of result">
-      {{photo.index}}
-    </li>
-  </ul>
-<app-photo-picker [photoA]="photoA"
+<app-photo-picker *ngIf="!isFinished"
+                  [photoA]="photoA"
                   [photoB]="photoB"
                   (votedForPhoto)="onVoted($event)">
 </app-photo-picker>
+
+
+<app-final-order *ngIf="isFinished"
+                 [result]="result">  
+</app-final-order>

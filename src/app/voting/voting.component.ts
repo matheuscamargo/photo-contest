@@ -9,10 +9,10 @@ import { PhotosService } from '../photos.service';
 })
 export class VotingComponent implements OnInit {
 
-  // To display.
   photoA: Photo;
   photoB: Photo;
-  votedFor = -1;
+  isFinished: boolean;
+
   
   allPhotos: Photo[];
   currentPhotos: Photo[];
@@ -30,10 +30,16 @@ export class VotingComponent implements OnInit {
     this.applyVote(photo);
   }
 
+  mockInitializeVoting() {
+    this.result = this.allPhotos;
+    this.isFinished = true;
+  }
+
   initializeVoting() {
     this.currentPhotos = this.allPhotos;
     this.result = new Array();
     this.nextLevel = new Array();
+    this.isFinished = false;
     this.updateView();
   }
 
@@ -69,6 +75,8 @@ export class VotingComponent implements OnInit {
     
     if (this.currentPhotos.length == 1) {
       this.result.push(this.currentPhotos.pop());
+      this.result.reverse();
+      this.isFinished = true;
       return;
     }
 
