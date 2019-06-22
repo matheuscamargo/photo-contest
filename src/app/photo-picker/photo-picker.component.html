@@ -1,3 +1,7 @@
 <p>Pick the best photo:</p>
-<p>First photo: <button (click)="vote(1)">{{photo1.index}}</button></p>
-<p>Second photo: <button (click)="vote(2)">{{photo2.index}}</button></p>
+<div class="option">
+    <input type="image" src="assets/{{photoA.index}}.jpg" (click)="vote('a')" />
+</div>
+<div class="option">
+    <input type="image" src="assets/{{photoB.index}}.jpg" (click)="vote('b')" />
+</div>

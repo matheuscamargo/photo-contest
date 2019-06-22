@@ -7,16 +7,16 @@ import { Photo } from '../photo';
   styleUrls: ['./photo-picker.component.scss']
 })
 export class PhotoPickerComponent implements OnInit {
-  @Input() photo1: Photo;
-  @Input() photo2: Photo;
-  @Output() votedForPhoto = new EventEmitter<number>();
+  @Input() photoA: Photo;
+  @Input() photoB: Photo;
+  @Output() votedForPhoto = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() { }
 
-  vote(photo: number) {
-    if (photo != 1 && photo != 2) {
+  vote(photo: string) {
+    if (photo != 'a' && photo != 'b') {
       return;
     }
 

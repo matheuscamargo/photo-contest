@@ -10,8 +10,8 @@ import { PhotosService } from '../photos.service';
 export class VotingComponent implements OnInit {
 
   // To display.
-  photo1: Photo;
-  photo2: Photo;
+  photoA: Photo;
+  photoB: Photo;
   votedFor = -1;
   
   allPhotos: Photo[];
@@ -26,7 +26,7 @@ export class VotingComponent implements OnInit {
     this.initializeVoting();
   }
 
-  onVoted(photo: number) {
+  onVoted(photo: string) {
     this.applyVote(photo);
   }
 
@@ -37,7 +37,7 @@ export class VotingComponent implements OnInit {
     this.updateView();
   }
 
-  applyVote(votedForIndex: number) {
+  applyVote(votedForIndex: string) {
     // Logic only supports powers of 2.
     var votedFor: Photo;
     var notVotedFor: Photo;
@@ -46,11 +46,11 @@ export class VotingComponent implements OnInit {
       return;
     }
 
-    if (votedForIndex == 1) {
+    if (votedForIndex == 'a') {
       notVotedFor = this.currentPhotos.pop();
       votedFor = this.currentPhotos.pop();
     }
-    else if (votedForIndex == 2) {
+    else if (votedForIndex == 'b') {
       votedFor = this.currentPhotos.pop();
       notVotedFor = this.currentPhotos.pop();
     }
@@ -82,7 +82,7 @@ export class VotingComponent implements OnInit {
       return;
     }
 
-    this.photo1 = this.currentPhotos[currentLevelSize - 2];
-    this.photo2 = this.currentPhotos[currentLevelSize - 1];
+    this.photoA = this.currentPhotos[currentLevelSize - 2];
+    this.photoB = this.currentPhotos[currentLevelSize - 1];
   }
 }

@@ -1,4 +1,3 @@
-<p>Voting component</p>
 <p>
   Current result:
 </p>  
@@ -7,7 +6,7 @@
       {{photo.index}}
     </li>
   </ul>
-<app-photo-picker [photo1]="photo1"
-                  [photo2]="photo2"
+<app-photo-picker [photoA]="photoA"
+                  [photoB]="photoB"
                   (votedForPhoto)="onVoted($event)">
 </app-photo-picker>
