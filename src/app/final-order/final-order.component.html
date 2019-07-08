@@ -8,8 +8,9 @@
   <a href={{formLink}}>Open Google Forms</a>
 </p>
 
-<section class="non-inline-div" *ngFor="let photosWithSameScore of photos">
-  <div class="inline-div" *ngFor="let photo of photosWithSameScore">
+<section class="non-inline-div" *ngFor="let group of results">
+  <p>Score: {{group.score}}</p>
+  <div class="inline-div" *ngFor="let photo of group.photos">
       <img src="assets/{{photo.index}}.jpg" />
   </div>
 </section>

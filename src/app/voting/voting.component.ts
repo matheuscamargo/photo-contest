@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Photo } from '../photo';
+import { VotingAlgorithm } from '../algorithms/voting-algorithm-interface';
+import { VoteSelection } from '../algorithms/vote-selection';
+import { VoteResult } from '../algorithms/vote-result';
+import { ResultGroup } from '../final-order/result-group';
+import { EliminationAlgorithmService } from '../algorithms/elimination/elimination-algorithm.service';
 import { PhotosService } from '../photos.service';
 
 @Component({
@@ -7,20 +12,26 @@ import { PhotosService } from '../photos.service';
   templateUrl: './voting.component.html',
   styleUrls: ['./voting.component.scss']
 })
-export class VotingComponent implements OnInit {
-  photoA: Photo;
-  photoB: Photo;
-  isFinished: boolean;
-  
-  allPhotos: Photo[];
-  currentPhotos: Photo[];
-  result: Photo[];
-  nextLevel: Photo[];
 
-  constructor(private photoService: PhotosService) { }
+export class VotingComponent implements OnInit {
+  @Input() photos: Photo[];
+  @Input() algorithm: VotingAlgorithm;
+
+  public photoA: Photo;
+  public photoB: Photo;
+  public isFinished: boolean;
+  public quantityOfRemainingRounds: number;
+  public results: ResultGroup[];
+
+  constructor() {
+    // TODO: Inject.
+    this.algorithm = new EliminationAlgorithmService();
+    this.algorithm.initialize(5);
+    let photoService = new PhotosService();
+    this.photos = photoService.getPhotos();
+  }
 
   ngOnInit() {
-    this.allPhotos = this.photoService.getPhotos();
     this.initializeVoting();
   }
 
@@ -28,67 +39,50 @@ export class VotingComponent implements OnInit {
     this.applyVote(photo);
   }
 
-  mockInitializeVoting() {
-    this.result = this.allPhotos;
-    this.isFinished = true;
-  }
-
-  initializeVoting() {
-    this.currentPhotos = this.allPhotos;
-    this.result = new Array();
-    this.nextLevel = new Array();
+  private initializeVoting() {
     this.isFinished = false;
     this.updateView();
   }
 
-  applyVote(votedForIndex: string) {
-    // Logic only supports powers of 2.
-    var votedFor: Photo;
-    var notVotedFor: Photo;
-
-    if (this.currentPhotos.length == 0) {
-      return;
-    }
-
+  private applyVote(votedForIndex: string) {
     if (votedForIndex == 'a') {
-      notVotedFor = this.currentPhotos.pop();
-      votedFor = this.currentPhotos.pop();
+      this.algorithm.voteFor(VoteSelection.OptionA);
     }
     else if (votedForIndex == 'b') {
-      votedFor = this.currentPhotos.pop();
-      notVotedFor = this.currentPhotos.pop();
+      this.algorithm.voteFor(VoteSelection.OptionB);
     }
     else {
       // Add error.
       return;
     }
 
-    this.result.push(notVotedFor);
-    this.nextLevel.push(votedFor);
-
-    if (this.currentPhotos.length == 0) {
-      this.currentPhotos = this.nextLevel;
-      this.nextLevel = new Array();
-    }
-    
-    if (this.currentPhotos.length == 1) {
-      this.result.push(this.currentPhotos.pop());
-      this.result.reverse();
-      this.isFinished = true;
-      return;
-    }
-
     this.updateView();
   }
 
-  updateView() {
-    var currentLevelSize = this.currentPhotos.length;
-    if (currentLevelSize < 2) {
-      // Finish logic.
+  private updateView() {
+    if (this.algorithm.getRemainingQuantityOfRounds() == 0) {
+      this.isFinished = true;
+      this.results = this.convertResult(this.algorithm.getResults());
       return;
     }
 
-    this.photoA = this.currentPhotos[currentLevelSize - 2];
-    this.photoB = this.currentPhotos[currentLevelSize - 1];
+    let voteOptions = this.algorithm.getVoteOptions();
+    this.photoA = this.photos[voteOptions.optionA];
+    this.photoB = this.photos[voteOptions.optionB];
+    this.quantityOfRemainingRounds = this.algorithm.getRemainingQuantityOfRounds();
+  }
+
+  private convertResult(results: VoteResult[]): ResultGroup[] {
+    type ResultMap = Record<number, ResultGroup>;
+    let output: ResultMap = {};
+    for (let result of results) {
+      if (!output.hasOwnProperty(result.score)) {
+        output[result.score] = { score: result.score, photos: new Array(0)};
+      }
+
+      output[result.score].photos.push(this.photos[result.elementIndex]);
+    }
+
+    return Object.values(output).reverse();
   }
 }
