@@ -8,11 +8,9 @@ import { PhotosService } from '../photos.service';
   styleUrls: ['./voting.component.scss']
 })
 export class VotingComponent implements OnInit {
-
   photoA: Photo;
   photoB: Photo;
   isFinished: boolean;
-
   
   allPhotos: Photo[];
   currentPhotos: Photo[];
