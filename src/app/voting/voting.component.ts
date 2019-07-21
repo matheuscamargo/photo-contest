@@ -18,33 +18,56 @@ export class VotingComponent implements OnInit {
   @Input() photos: Photo[];
   @Input() algorithm: VotingAlgorithm;
 
+  private readonly numberOfPhotos = 5;
+
   public photoA: Photo;
   public photoB: Photo;
   public isFinished: boolean;
+  public votingAlgorithmSelected: boolean;
+  public mergeSortQuantitity: number;
+  public eliminationQuantity: number;
   public quantityOfRemainingRounds: number;
   public results: ResultGroup[];
 
-  constructor() {
-    // TODO: Inject.
-    this.algorithm = new MergesortAlgorithmService();
-    let photoIndexArray = Array.from(Array(5).keys());
-    this.shuffleArray(photoIndexArray);
-    this.algorithm.initialize(photoIndexArray);
-    let photoService = new PhotosService();
-    this.photos = photoService.getPhotos();
-  }
+  constructor() { }
 
   ngOnInit() {
-    this.initializeVoting();
+    this.initialize();
+  }
+
+  onChoseAlgorithm(algorithm: string) {
+    if (algorithm != "mergesort" && algorithm != "elimination") {
+      throw new Error("Unknown algorithm parameter.");
+    }
+
+    if (algorithm == "mergesort") {
+      this.algorithm = new MergesortAlgorithmService();
+    }
+
+    if (algorithm == "elimination") {
+      this.algorithm = new EliminationAlgorithmService();
+    }
+
+    let photoIndexArray = Array.from(Array(this.numberOfPhotos).keys());
+    this.shuffleArray(photoIndexArray);
+    this.algorithm.initialize(photoIndexArray);
+    this.votingAlgorithmSelected = true;
+    this.updateView();
   }
 
   onVoted(photo: string) {
     this.applyVote(photo);
   }
 
-  private initializeVoting() {
+  private initialize() {
     this.isFinished = false;
-    this.updateView();
+    this.votingAlgorithmSelected = false;
+    this.mergeSortQuantitity =
+      new MergesortAlgorithmService().getInitialQuantityOfRounds(this.numberOfPhotos);
+    this.eliminationQuantity =
+      new EliminationAlgorithmService().getInitialQuantityOfRounds(this.numberOfPhotos);      
+    let photoService = new PhotosService();
+    this.photos = photoService.getPhotos();
   }
 
   private applyVote(votedForIndex: string) {

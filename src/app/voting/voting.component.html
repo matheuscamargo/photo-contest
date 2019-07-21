@@ -1,10 +1,15 @@
-<app-photo-picker *ngIf="!isFinished"
+<app-intro *ngIf="!votingAlgorithmSelected"
+           [mergeSortQuantity]="mergeSortQuantitity"
+           [eliminationQuantity]="eliminationQuantity"
+           (choseAlgorithm)="onChoseAlgorithm($event)">
+</app-intro>
+
+<app-photo-picker *ngIf="votingAlgorithmSelected && !isFinished"
                   [photoA]="photoA"
                   [photoB]="photoB"
                   (votedForPhoto)="onVoted($event)">
 </app-photo-picker>
 
-
-<app-final-order *ngIf="isFinished"
+<app-final-order *ngIf="votingAlgorithmSelected && isFinished"
                  [results]="results">  
 </app-final-order>

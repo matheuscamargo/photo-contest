@@ -20,23 +20,27 @@ export class EliminationAlgorithmService implements VotingAlgorithm {
 
   constructor() {}
 
-  initialize(elements: number[]) {
+  public initialize(elements: number[]) {
     let quantityOfElements = elements.length;
     this.isInitialized = true;
     this.currentLevelScore = 1;
-    this.remainingRounds = quantityOfElements - 1;
+    this.remainingRounds = this.getInitialQuantityOfRounds(quantityOfElements);
     let firstLevelSize = this.getQuantityOfElementsOnFirstLevel(quantityOfElements);
     this.elementsOnCurrentLevel = elements.slice(0, firstLevelSize);
     this.elementsOnNextLevel = elements.slice(firstLevelSize);
     this.results = new Array(0);
   }
 
-  getRemainingQuantityOfRounds(): number {
+  public getRemainingQuantityOfRounds(): number {
     this.ensureIsInitialized();
     return this.remainingRounds;
   }
 
-  getVoteOptions(): VoteOptions {
+  public getInitialQuantityOfRounds(numberOfElements: number): number {
+    return numberOfElements - 1;
+  }
+
+  public getVoteOptions(): VoteOptions {
     this.ensureVotingIsNotOver();
     let length = this.elementsOnCurrentLevel.length;
     let optionB = this.elementsOnCurrentLevel[length - 1];
@@ -44,7 +48,7 @@ export class EliminationAlgorithmService implements VotingAlgorithm {
     return { optionA: optionA, optionB: optionB };
   }
 
-  voteFor(selected: VoteSelection) {
+  public voteFor(selected: VoteSelection) {
     this.ensureVotingIsNotOver();
     this.remainingRounds--;
     let optionB = this.elementsOnCurrentLevel.pop();
@@ -71,7 +75,7 @@ export class EliminationAlgorithmService implements VotingAlgorithm {
     }
   }
 
-  getResults(): VoteResult[] {
+  public getResults(): VoteResult[] {
     this.ensureVotingIsOver();
     return this.results;
   }

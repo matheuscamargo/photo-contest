@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { VotingComponent } from './voting/voting.component';
 import { PhotoPickerComponent } from './photo-picker/photo-picker.component';
 import { FinalOrderComponent } from './final-order/final-order.component';
+import { IntroComponent } from './intro/intro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VotingComponent,
     PhotoPickerComponent,
-    FinalOrderComponent
+    FinalOrderComponent,
+    IntroComponent
   ],
   imports: [
     BrowserModule,

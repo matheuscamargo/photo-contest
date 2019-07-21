@@ -39,6 +39,10 @@ export class MergesortAlgorithmService implements VotingAlgorithm {
     return this.remainingRounds;
   }
 
+  getInitialQuantityOfRounds(numberOfElements: number): number {
+    return this.getTotalQuantityOfRounds(numberOfElements);
+  }
+
   getVoteOptions(): VoteOptions {
     this.ensureVotingIsNotOver();
     return {
@@ -115,19 +119,19 @@ export class MergesortAlgorithmService implements VotingAlgorithm {
 
   private ensureIsInitialized() {
     if (!this.isInitialized) {
-      throw new Error("Service should be initialized first.")
+      throw new Error("Service should be initialized first.");
     }
   }
 
   private ensureVotingIsNotOver() {
     if (this.remainingRounds <= 0) {
-      throw new Error("Voting is over.")
+      throw new Error("Voting is over.");
     }
   }
 
   private ensureVotingIsOver() {
     if (this.remainingRounds > 0) {
-      throw new Error("Voting is not over.")
+      throw new Error("Voting is not over.");
     }
   }
 

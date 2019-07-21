@@ -15,9 +15,9 @@ export class PhotoPickerComponent implements OnInit {
 
   ngOnInit() { }
 
-  vote(photo: string) {
+  public vote(photo: string) {
     if (photo != 'a' && photo != 'b') {
-      return;
+      throw new Error("Unknown photo parameter.");
     }
 
     this.votedForPhoto.emit(photo);
