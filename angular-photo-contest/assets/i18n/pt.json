@@ -1,0 +1,32 @@
+{
+    "INTRO_PHOTO_CONTEST": "Concurso fotográfico",
+    "INTRO_WELCOME": "Bem-vindo ao nosso conurso fotográfico! Nos ajude a escolher as melhores fotos. Essa página irá te ajudar a decidir quais são as melhores ao mostrar múltiplos duelos entre 2 fotos, até que seja possível definir sua ordem de preferência para todas as fotos.",
+    "INTRO_PICK": "Escolha uma das 2 opções a seguir para votar:",
+    "INTRO_MERGESORT_DESCRIPTION": "Longa, mais precisa (merge sort):",
+    "INTRO_MERGESORT_BUTTON": "Vote {{mergeSortQuantity}} vezes ou menos",
+    "INTRO_ELIMINATION_DESCRIPTION": "Curta, menos precisa (eliminação):",
+    "INTRO_ELIMINATION_BUTTON": "Vote {{eliminationQuantity}} vezes",
+    "INTRO_ADDITIONAL_DETAILS": "Mais informações",
+    "INTRO_MERGESORT_TITLE": "Merge sort",
+    "INTRO_MERGESORT_DETAILS": "Com a opção merge sort, faremos um bottom up merge sort (<a href=\"https://pt.wikipedia.org/wiki/Merge_sort\">referência na Wikipedia</a>) e você será responsável por fazer cada comparação. Como a quantidade de comparações irá depender da ordem dos elements antes do merge, é possível que você faça menos do que {{mergeSortQuantity}} comparações. No final, 1000 pontos no total serão distribuídos linearmente baseado na ordem definida (ex: [0, 100, 200, 300, 400]).",
+    "INTRO_ELIMINATION_TITLE": "Eliminação",
+    "INTRO_ELIMINATION_DETAILS": "Com a opção de eliminação, faremos um torneio de eliminação única, como em uma Copa do Mundo (<a href=\"https://en.wikipedia.org/wiki/Single-elimination_tournament\">referência na Wikipedia</a>) e você será responsável por decidir o vencedor entre cada disputa entre 2 fotos. No final, 1000 pontos no total serão dados e cada partida adicional disputada dará o dobro de pontos adquiridos por quem perdeu na rodada anterior (ex: [0, 125, 125, 250, 500]).",
+    "INTRO_VOTES_COMPUTED_TITLE": "Como os votos são computados?",
+    "INTRO_VOTES_COMPUTED_DETAILS": "Essa é apenas uma página estática em Angular que no fim mostrará um link para uma página do Google Forms com as opções já pré populadas. Então será necessário apenas logar (para evitar votos duplicados) e submeter. Validação adicional pode ser feita nos resultados para garantir que eles sigam as distribuições geradas por essa página.",
+    "INTRO_WHY_2_TYPES_TITLE": "Porque há 2 maneiras de votar?",
+    "INTRO_WHY_2_TYPES_DETAILS": "Porque não conseguimos decidir qual usar!",
+    "INTRO_RULES_TITLE": "Quais as regras para as fotos do concurso?",
+    "INTRO_RULES_DETAILS": "Usar uma câmera analógica descartável com ~27 poses e tirar quaisquer fotos. Então, cada participante escolhe 4 fotos para o concurso.",
+    "INTRO_CONTESTANTS_TITLE": "Quem são os participantes?",
+    "INTRO_CONTESTANTS_DETAILS": "Matheus, Mut e Muzio :)",
+    "INTRO_SOURCE_CODE_TITLE": "Onde está o código fonte?",
+
+    "PICKER_REMAINING_VOTES": "Votos restantes: {{quantityOfRemainingRounds}}",
+    "PICKER_PICK_BEST_PHOTO": "Escolha a melhor foto:",
+
+    "FINAL_LAST_STEP": "Último passo",
+    "FINAL_OPEN_FORMS": "Abrir Google Forms",
+    "FINAL_RESULT_EXPLANATION": "Esse é o resultado baseado nos seus votos. As melhores fotos estão em cima e as votos no mesmo nível tem a mesma quantidade de pontos (caso tenha escolhido \"Eliminação\").",
+    "FINAL_RESULT_FOLLOW_LINK": "Clique no botão acima para abrir suas opções no Google Forms e em seguida clique em \"Submeter\" para computar o seu voto, é necessário logar com sua conta do Google.",
+    "FINAL_SCORE": "Pontuação: {{score}} pontos"
+}
