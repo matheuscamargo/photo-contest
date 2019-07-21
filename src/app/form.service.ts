@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FormService {
-  readonly googleFormsUrl = "https://docs.google.com/forms/d/e/1FAIpQLScnVETJbv3uajya7Ap6n2XSA7pskm-_YNWFbYfDr9Nim0Gmcg/viewform?usp=pp_url&entry.1704513406=0&entry.2016995176=0&entry.582347936=0&entry.721081952=0&entry.851699322=0&entry.1757762361=0&entry.903665290=0&entry.271031929=0&entry.777101610=0&entry.1213855026=0&entry.1172318361=0&entry.198847752=0&entry.651616159=0&entry.735627302=0&entry.1923642683=0&entry.1801247082=0";
+  readonly googleFormsUrl = "https://docs.google.com/forms/d/e/1FAIpQLSc_aBBI005lNZcfTaMFy2AEi_bzI4tJ75Bw0sOzzzGSwgrGYg/viewform?usp=pp_url&entry.468832349=0&entry.18502918=0&entry.1240903544=0&entry.2024966849=0&entry.1128203190=0&entry.1650137116=0&entry.407929624=0&entry.805346303=0&entry.307472477=0&entry.1709423003=0&entry.1115811744=0&entry.218112430=0";
 
   constructor() { }
 

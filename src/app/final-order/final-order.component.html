@@ -1,10 +1,10 @@
 <div class="narrow">
-  <h1>One last step</h1>
-  <p class="button"><a href={{formLink}} class="button">Open Google Forms</a></p>
-  <p>This is the resulting order based on your votes. The best photos are on the top and photos on the same level have the same score.</p>
-  <p>Follow the link above to open your selected options in Google Forms and make sure to press submit to send your vote, Google login is required.</p>
+  <h1 translate>FINAL_LAST_STEP</h1>
+  <p class="button"><a href={{formLink}} class="button" translate>FINAL_OPEN_FORMS</a></p>
+  <p translate>FINAL_RESULT_EXPLANATION</p>
+  <p translate>FINAL_RESULT_FOLLOW_LINK</p>
   <section class="non-inline-div" *ngFor="let group of results">
-    <p class="score">Score: {{group.score}}</p>
+    <p class="score" translate [translateParams]="{score: group.score}">FINAL_SCORE</p>
     <div class="inline-div" *ngFor="let photo of group.photos">
         <img src="assets/{{photo.index}}.jpg" />
     </div>

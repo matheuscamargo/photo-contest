@@ -1,5 +1,5 @@
-<p class="remaining">Remaining votes: {{quantityOfRemainingRounds}}</p>
-<p>Pick the best photo:</p>
+<p class="remaining" translate [translateParams]="{quantityOfRemainingRounds: quantityOfRemainingRounds}">PICKER_REMAINING_VOTES</p>
+<p translate>PICKER_PICK_BEST_PHOTO</p>
 <div class="option">
     <input type="image" src="assets/{{photoA.index}}.jpg" (click)="vote('a')" />
 </div>
