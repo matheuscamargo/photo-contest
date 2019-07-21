@@ -6,6 +6,7 @@ import { VoteResult } from '../algorithms/vote-result';
 import { ResultGroup } from '../final-order/result-group';
 import { EliminationAlgorithmService } from '../algorithms/elimination/elimination-algorithm.service';
 import { PhotosService } from '../photos.service';
+import { MergesortAlgorithmService } from '../algorithms/mergesort/mergesort-algorithm.service';
 
 @Component({
   selector: 'app-voting',
@@ -25,7 +26,7 @@ export class VotingComponent implements OnInit {
 
   constructor() {
     // TODO: Inject.
-    this.algorithm = new EliminationAlgorithmService();
+    this.algorithm = new MergesortAlgorithmService();
     this.algorithm.initialize(5);
     let photoService = new PhotosService();
     this.photos = photoService.getPhotos();
