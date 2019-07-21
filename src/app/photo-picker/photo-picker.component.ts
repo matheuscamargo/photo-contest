@@ -9,6 +9,7 @@ import { Photo } from '../photo';
 export class PhotoPickerComponent implements OnInit {
   @Input() photoA: Photo;
   @Input() photoB: Photo;
+  @Input() quantityOfRemainingRounds: number;
   @Output() votedForPhoto = new EventEmitter<string>();
 
   constructor() { }

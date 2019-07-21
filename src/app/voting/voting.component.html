@@ -5,6 +5,7 @@
 </app-intro>
 
 <app-photo-picker *ngIf="votingAlgorithmSelected && !isFinished"
+                  [quantityOfRemainingRounds]="quantityOfRemainingRounds"
                   [photoA]="photoA"
                   [photoB]="photoB"
                   (votedForPhoto)="onVoted($event)">
