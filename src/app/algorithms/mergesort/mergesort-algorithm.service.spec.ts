@@ -14,21 +14,16 @@ describe('MergesortAlgorithmService', () => {
     }).toThrowError("Service should be initialized first.");
   });
 
-  it('should throw error when quantity is not positive', () => {
-    let errorMessage = "Element quantity should be a positive number.";
-    expect(() => service.initialize(-1)).toThrowError(errorMessage);
-    expect(() => service.initialize(0)).toThrowError(errorMessage);
-  });
-
   it('should return the correct quantity of rounds', () => {
     let testSet = [ 
-      { input: 1, expected: 0},
-      { input: 2, expected: 1},
-      { input: 3, expected: 3},
-      { input: 4, expected: 5},
-      { input: 5, expected: 9},
-      { input: 6, expected: 11},
-      { input: 7, expected: 14}
+      { input: [], expected: 0},
+      { input: [0], expected: 0},
+      { input: [0, 1], expected: 1},
+      { input: [0, 1, 2], expected: 3},
+      { input: [0, 1, 2, 3], expected: 5},
+      { input: [0, 1, 2, 3, 4], expected: 9},
+      { input: [0, 1, 2, 3, 4, 5], expected: 11},
+      { input: [0, 1, 2, 3, 4, 5, 6], expected: 14}
     ];
 
     for (let i = 0; i < testSet.length; i++) {
@@ -38,19 +33,19 @@ describe('MergesortAlgorithmService', () => {
   });
 
   it('should throw error when voting after vote is over', () => {
-    service.initialize(1);
+    service.initialize([0]);
     let errorMessage = "Voting is over.";
     expect(() => service.getVoteOptions()).toThrowError(errorMessage);
     expect(() => service.voteFor(VoteSelection.OptionA)).toThrowError(errorMessage);
   });
 
   it('should throw error when getting results before voting is over', () => {
-    service.initialize(2);
+    service.initialize([0, 1]);
     expect(() => service.getResults()).toThrowError("Voting is not over.");
   });
 
   it('should return correct results for 2 elements when voting for A', () => {
-    service.initialize(2);
+    service.initialize([0, 1]);
     expect(service.getRemainingQuantityOfRounds()).toBe(1);
     expect(service.getVoteOptions()).toEqual({optionA: 0, optionB: 1});
     service.voteFor(VoteSelection.OptionA);
@@ -61,7 +56,7 @@ describe('MergesortAlgorithmService', () => {
   });
 
   it('should return correct results for 2 elements when voting for B', () => {
-    service.initialize(2);
+    service.initialize([0, 1]);
     expect(service.getRemainingQuantityOfRounds()).toBe(1);
     expect(service.getVoteOptions()).toEqual({optionA: 0, optionB: 1});
     service.voteFor(VoteSelection.OptionB);
@@ -72,7 +67,7 @@ describe('MergesortAlgorithmService', () => {
   });
 
   it('should return correct results for 3 elements reducing rounds', () => {
-    service.initialize(3);
+    service.initialize([0, 1, 2]);
     // [0, 1, 2]
     expect(service.getRemainingQuantityOfRounds()).toBe(3);
     expect(service.getVoteOptions()).toEqual({optionA: 0, optionB: 1});
@@ -90,7 +85,7 @@ describe('MergesortAlgorithmService', () => {
   });
 
   it('should return correct results for 3 elements with all rounds', () => {
-    service.initialize(3);
+    service.initialize([0, 1, 2]);
     // [0, 1, 2]
     expect(service.getRemainingQuantityOfRounds()).toBe(3);
     expect(service.getVoteOptions()).toEqual({optionA: 0, optionB: 1});
@@ -111,7 +106,7 @@ describe('MergesortAlgorithmService', () => {
   });
 
   it('should return correct results for 4 elements when ordered', () => {
-    service.initialize(4);
+    service.initialize([0, 1, 2, 3]);
     // [0, 1, 2, 3]
     expect(service.getRemainingQuantityOfRounds()).toBe(5);
     expect(service.getVoteOptions()).toEqual({optionA: 0, optionB: 1});
@@ -136,7 +131,7 @@ describe('MergesortAlgorithmService', () => {
   });
 
   it('should return correct results for 4 elements when reversed', () => {
-    service.initialize(4);
+    service.initialize([0, 1, 2, 3]);
     // [0, 1, 2, 3]
     expect(service.getRemainingQuantityOfRounds()).toBe(5);
     expect(service.getVoteOptions()).toEqual({optionA: 0, optionB: 1});
@@ -162,7 +157,7 @@ describe('MergesortAlgorithmService', () => {
 
   it('should return correct results for 5 elements', () => {
     // [0, 1, 2, 3, 4]
-    service.initialize(5);
+    service.initialize([0, 1, 2, 3, 4]);
     expect(service.getRemainingQuantityOfRounds()).toBe(9);
     expect(service.getVoteOptions()).toEqual({optionA: 0, optionB: 1});
     service.voteFor(VoteSelection.OptionA);

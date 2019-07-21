@@ -27,7 +27,9 @@ export class VotingComponent implements OnInit {
   constructor() {
     // TODO: Inject.
     this.algorithm = new MergesortAlgorithmService();
-    this.algorithm.initialize(5);
+    let photoIndexArray = Array.from(Array(5).keys());
+    this.shuffleArray(photoIndexArray);
+    this.algorithm.initialize(photoIndexArray);
     let photoService = new PhotosService();
     this.photos = photoService.getPhotos();
   }
@@ -85,5 +87,15 @@ export class VotingComponent implements OnInit {
     }
 
     return Object.values(output).reverse();
+  }
+
+  private shuffleArray(input: number[]) {
+    let i, j, x;
+    for (i = input.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = input[i];
+        input[i] = input[j];
+        input[j] = x;
+    }
   }
 }

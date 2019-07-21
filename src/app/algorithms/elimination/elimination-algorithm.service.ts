@@ -20,18 +20,14 @@ export class EliminationAlgorithmService implements VotingAlgorithm {
 
   constructor() {}
 
-  initialize(quantityOfElements: number) {
-    if (quantityOfElements <= 0) {
-      throw new Error("Element quantity should be a positive number.")
-    }
-
+  initialize(elements: number[]) {
+    let quantityOfElements = elements.length;
     this.isInitialized = true;
     this.currentLevelScore = 1;
     this.remainingRounds = quantityOfElements - 1;
     let firstLevelSize = this.getQuantityOfElementsOnFirstLevel(quantityOfElements);
-    this.elementsOnCurrentLevel = Array.from(Array(firstLevelSize).keys());
-    let secondLevelSize = quantityOfElements - firstLevelSize;
-    this.elementsOnNextLevel = Array.from({length: secondLevelSize}, (_, k) => k + firstLevelSize);
+    this.elementsOnCurrentLevel = elements.slice(0, firstLevelSize);
+    this.elementsOnNextLevel = elements.slice(firstLevelSize);
     this.results = new Array(0);
   }
 
@@ -64,7 +60,7 @@ export class EliminationAlgorithmService implements VotingAlgorithm {
     if (this.remainingRounds == 0) {
       let index = this.elementsOnNextLevel[0];
       this.results.push({elementIndex: index, score: 2 * this.currentLevelScore});
-      this.normalizeScores(this.results);
+      this.results = this.normalizeScores(this.results);
       return;
     }
 
@@ -106,11 +102,11 @@ export class EliminationAlgorithmService implements VotingAlgorithm {
       2 * (totalQuantity - sizeOfFirstCompleteLevel);
   }
 
-  private normalizeScores(results: VoteResult[]) {
-    let reducedResults = this.results.map(r => { return { elementIndex: r.elementIndex, score: Math.floor(r.score/2) } });
+  private normalizeScores(results: VoteResult[]): VoteResult[] {
+    let reducedResults = results.map(r => { return { elementIndex: r.elementIndex, score: Math.floor(r.score/2) } });
     let totalScore = reducedResults.map(r => r.score).reduce((prev, next) => prev + next);
     let adjustFactor = this.totalDesiredScore / totalScore;
-    this.results = reducedResults.map(r => { 
+    return reducedResults.map(r => { 
       return { elementIndex: r.elementIndex, score: Math.round(r.score * adjustFactor) };
     });
   }

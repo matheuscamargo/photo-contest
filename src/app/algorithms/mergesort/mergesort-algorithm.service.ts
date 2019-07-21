@@ -23,17 +23,14 @@ export class MergesortAlgorithmService implements VotingAlgorithm {
 
   constructor() {}
 
-  initialize(quantityOfElements: number) {
-    if (quantityOfElements <= 0) {
-      throw new Error("Element quantity should be a positive number.")
-    }
-
+  initialize(elements: number[]) {
+    let quantityOfElements = elements.length;
     this.isInitialized = true;
     this.remainingRounds = this.getTotalQuantityOfRounds(quantityOfElements);
     this.currentBlockSize = 1;
     this.currentOptionA = this.mergedBlockStartIndex = 0;
     this.currentOptionB = 1;
-    this.elements = Array.from(Array(quantityOfElements).keys());
+    this.elements = elements;
     this.mergedBlock = new Array();
   }
 
