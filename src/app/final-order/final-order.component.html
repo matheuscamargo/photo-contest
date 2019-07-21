@@ -1,16 +1,12 @@
-<p>
-  This is the resulting order based on your votes. The best photos are on the top and photos on the same level have the same score.
-</p>
-<p>
-  Follow the link below to open your selected options in Google Forms and press submit to send your vote, login is required.
-</p>
-<p>
-  <a href={{formLink}}>Open Google Forms</a>
-</p>
-
-<section class="non-inline-div" *ngFor="let group of results">
-  <p>Score: {{group.score}}</p>
-  <div class="inline-div" *ngFor="let photo of group.photos">
-      <img src="assets/{{photo.index}}.jpg" />
-  </div>
-</section>
+<div class="narrow">
+  <h1>One last step</h1>
+  <p class="button"><a href={{formLink}} class="button">Open Google Forms</a></p>
+  <p>This is the resulting order based on your votes. The best photos are on the top and photos on the same level have the same score.</p>
+  <p>Follow the link above to open your selected options in Google Forms and make sure to press submit to send your vote, Google login is required.</p>
+  <section class="non-inline-div" *ngFor="let group of results">
+    <p class="score">Score: {{group.score}}</p>
+    <div class="inline-div" *ngFor="let photo of group.photos">
+        <img src="assets/{{photo.index}}.jpg" />
+    </div>
+  </section>
+</div>

@@ -1,4 +1,4 @@
-<p>Remaining votes: {{quantityOfRemainingRounds}}</p>
+<p class="remaining">Remaining votes: {{quantityOfRemainingRounds}}</p>
 <p>Pick the best photo:</p>
 <div class="option">
     <input type="image" src="assets/{{photoA.index}}.jpg" (click)="vote('a')" />
@@ -6,3 +6,4 @@
 <div class="option">
     <input type="image" src="assets/{{photoB.index}}.jpg" (click)="vote('b')" />
 </div>
+

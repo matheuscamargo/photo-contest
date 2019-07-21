@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+// Some ideas from https://github.com/milligram/milligram
+
+$color-initial: #fff !default;
+$color-primary: #303f9f !default;
+$color-secondary: #444 !default;
+
+body {
+    color: $color-secondary;
+	font-family: "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+	font-size: 1.1em;
+	line-height: 1.4;
+}
+
+button, a.button {	
+    font-family: "Trebuchet MS";
+    background-color: $color-primary;
+    border: .1rem solid $color-primary;
+    margin: 0 auto;
+    left: 50%;
+	border-radius: .4rem;
+	color: $color-initial;
+	cursor: pointer;
+	font-size: 1.1rem;
+	font-weight: 700;
+	letter-spacing: .1rem;
+	line-height: 3.8rem;
+	padding: 0 3.0rem;
+	text-align: center;
+	text-transform: uppercase;
+    text-decoration: none;
+    &:hover, &:focus {
+        background-color: $color-secondary;
+		border-color: $color-secondary;
+		color: $color-initial;
+    }
+}
+
+li {
+    margin-bottom: 1.5rem;
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2 {
+	text-align: center;
+    font-weight: 300;
+	letter-spacing: -.1rem;
+	margin-bottom: 1.5rem;
+    margin-top: 0;
+}
+
+h1 {
+	font-size: 3rem;
+	line-height: 1.2;
+}
+
+h2 {
+	font-size: 2rem;
+    line-height: 1.25;
+}
+
+div.narrow {
+    max-width: 900px;
+    margin: auto;
+}

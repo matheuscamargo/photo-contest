@@ -11,8 +11,22 @@
 }
 
 img {
-    max-width:100px;
-    max-height:100px;
-    height:auto;
-    width:auto;
+    max-width: 200px;
+    max-height: 200px;
+    height: auto;
+    width: auto;
+}
+
+p.score {
+    margin: 0;
+    font-weight: 900;
+    margin-top: 10px;
+}
+
+p.button {
+    text-align: center;
+}
+
+a.button {
+    display: inline-block;
 }

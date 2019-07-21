@@ -1,9 +1,25 @@
-<h1>Photo contest</h1>
-<p>Welcome to our photo contest! Please take your time to vote for the best photos. This website will help you to make this decision by presenting a face-off between 2 pictures several times, until it is able to tell what is your preference order for all photos.</p>
-<p>Pick one of the 2 options for voting:</p>
-<ul>
-    <li><button (click)="chooseAlgorithm('mergesort')">Vote {{mergeSortQuantity}} times or less. Longer, more precise.</button></li>
-    <li><button (click)="chooseAlgorithm('elimination')">Vote {{eliminationQuantity}} times. Quicker, less precise.</button></li>
-</ul>
-<h2>Additional details</h2>
-<p>TODO: Merge sort, elimination</p>
+<div class="narrow">
+    <h1>Photo contest</h1>
+    <p>Welcome to our photo contest! Please take your time to vote for the best photos. This website will help you to make this decision by presenting a face-off between 2 pictures several times, until it is able to tell what is your preference order for all photos.</p>
+    <p>Pick one of the 2 options for voting:</p>
+    <p class="option-description">Longer, more precise (merge sort):</p>
+    <p class="button"><button (click)="chooseAlgorithm('mergesort')">Vote {{mergeSortQuantity}} times or less</button></p>
+    <p class="option-description">Quicker, less precise (elimination):</p>
+    <p class="button"><button (click)="chooseAlgorithm('elimination')">Vote {{eliminationQuantity}} times</button></p>
+    <hr>
+    <h2>Additional details</h2>
+    <h3>Merge sort</h3>
+    <p>With the merge sort option, we will run a bottom up merge sort (<a href="https://en.wikipedia.org/wiki/Merge_sort">Wikipedia reference</a>) and you will be responsible for making each comparison. Since the number of comparisons will depend on the elements order before merging, that's why it may be necessary to run less than {{mergeSortQuantity}} comparisons. In the end, 1000 points in total will be spread linearly based on the resulting order (e.g. [0, 100, 200, 300, 400]).</p>
+    <h3>Elimination</h3>
+    <p>With the elimination option, we will run a single-elimination tournament (<a href="https://en.wikipedia.org/wiki/Single-elimination_tournament">Wikipedia reference</a>) and you will be responsible for deciding the outcome of each face-off.  In the end, 1000 points in total will be given and each additional round grants double the points from the previous round (e.g. [0, 125, 125, 250, 500]).</p>
+    <h3>How are the votes computed?</h3>
+    <p>This is just a static page written in Angular which will provide in the end a link to a Google Forms page with the options already filled. Then you just need to login (to avoid duplicate votes) and submit. Additional validation can be made on the results to ensure that votes are valid based on the possible score distribution given by this page.</p>
+    <h3>Why are there 2 different types of voting mechanisms?</h3>
+    <p>Because we couldn't decide which to use!</p>
+    <h3>What were the rules for taking the photos?</h3>
+    <p>Using an analog camera with ~27 photos and taking any pictures. Then, each one chose 4 pictures for the contest.</p>
+    <h3>Who are the contestants?</h3>
+    <p>Matheus, Mut e Muzio :)</p>
+    <h3>Where is the source code?</h3>
+    <p><a href="https://github.com/matheuscamargo/photo-contest">https://github.com/matheuscamargo/photo-contest</a></p>
+</div>

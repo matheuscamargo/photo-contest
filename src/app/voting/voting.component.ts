@@ -18,7 +18,7 @@ export class VotingComponent implements OnInit {
   @Input() photos: Photo[];
   @Input() algorithm: VotingAlgorithm;
 
-  private readonly numberOfPhotos = 5;
+  private readonly numberOfPhotos = 12;
 
   public photoA: Photo;
   public photoB: Photo;
