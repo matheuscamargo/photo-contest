@@ -1,3 +1,5 @@
+@import "../../styles.scss";
+
 p.button {
     text-align: center;
     margin-top: 0;
@@ -9,3 +11,7 @@ p.option-description {
     text-align: center;
     margin-bottom: 10px;
 }
+
+a.language {
+    font-size: 0.8em;
+} 

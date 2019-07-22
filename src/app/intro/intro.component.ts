@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-intro',
@@ -10,9 +11,13 @@ export class IntroComponent implements OnInit {
   @Input() eliminationQuantity: number;
   @Output() choseAlgorithm = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private translateService: TranslateService) { }
 
   ngOnInit() { }
+
+  public changeLanguage(language: string) {
+    this.translateService.use(language);
+  }
 
   public chooseAlgorithm(algorithm: string) {
     this.choseAlgorithm.emit(algorithm);

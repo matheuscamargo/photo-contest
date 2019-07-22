@@ -65,3 +65,11 @@ div.narrow {
     max-width: 900px;
     margin: auto;
 }
+
+a {
+	color: $color-primary;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
