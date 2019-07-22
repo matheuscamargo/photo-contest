@@ -1,6 +1,6 @@
 {
     "INTRO_PHOTO_CONTEST": "Concurso fotográfico",
-    "INTRO_WELCOME": "Bem-vindo ao nosso conurso fotográfico! Nos ajude a escolher as melhores fotos. Essa página irá te ajudar a decidir quais são as melhores ao mostrar múltiplos duelos entre 2 fotos, até que seja possível definir sua ordem de preferência para todas as fotos.",
+    "INTRO_WELCOME": "Bem-vindo ao nosso concurso fotográfico! Nos ajude a escolher as melhores fotos. Essa página irá te ajudar a decidir quais são as melhores ao mostrar múltiplos duelos entre 2 fotos, até que seja possível definir sua ordem de preferência para todas as fotos.",
     "INTRO_PICK": "Escolha uma das 2 opções a seguir para votar:",
     "INTRO_MERGESORT_DESCRIPTION": "Longa, mais precisa (merge sort):",
     "INTRO_MERGESORT_BUTTON": "Vote {{mergeSortQuantity}} vezes ou menos",
