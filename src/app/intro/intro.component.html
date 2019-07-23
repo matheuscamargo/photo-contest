@@ -1,26 +1,48 @@
-<div class="narrow">  
-    <p><a class="language" [routerLink]="" (click)="changeLanguage('pt')">Português</a> | <a class="language" [routerLink]="" (click)="changeLanguage('en')">English</a></p>
+<div class="narrow">
+    <p>
+        <a class="language" [routerLink]="" (click)="changeLanguage('pt')">Português</a> | <a class="language"
+            [routerLink]="" (click)="changeLanguage('en')">English</a>
+    </p>
     <h1 translate>INTRO_PHOTO_CONTEST</h1>
     <p translate>INTRO_WELCOME</p>
     <p translate>INTRO_PICK</p>
     <p class="option-description" translate>INTRO_MERGESORT_DESCRIPTION</p>
-    <p class="button"><button (click)="chooseAlgorithm('mergesort')" translate [translateParams]="{mergeSortQuantity: mergeSortQuantity}">INTRO_MERGESORT_BUTTON</button></p>
+    <p class="button">
+        <button (click)="chooseAlgorithm('mergesort')" translate
+            [translateParams]="{mergeSortQuantity: mergeSortQuantity}">
+            INTRO_MERGESORT_BUTTON
+        </button>
+    </p>
     <p class="option-description" translate>INTRO_ELIMINATION_DESCRIPTION</p>
-    <p class="button"><button (click)="chooseAlgorithm('elimination')" translate [translateParams]="{eliminationQuantity: eliminationQuantity}">INTRO_ELIMINATION_BUTTON</button></p>
+    <p class="button">
+        <button (click)="chooseAlgorithm('elimination')" translate
+            [translateParams]="{eliminationQuantity: eliminationQuantity}">
+            INTRO_ELIMINATION_BUTTON
+        </button>
+    </p>
     <hr>
     <h2 translate>INTRO_ADDITIONAL_DETAILS</h2>
+
     <h3 translate>INTRO_MERGESORT_TITLE</h3>
-    <p><span translate>INTRO_MERGESORT_DETAILS_1</span> (<a href="https://en.wikipedia.org/wiki/Merge_sort" translate>INTRO_MERGESORT_DETAILS_2</a>) <span translate>INTRO_MERGESORT_DETAILS_3</span></p>
+    <p [innerHTML]="'INTRO_MERGESORT_DETAILS' | translate"></p>
+
     <h3 translate>INTRO_ELIMINATION_TITLE</h3>
-    <p [innerHTML]="'INTRO_ELIMINATION_DETAILS' | translate">
+    <p [innerHTML]="'INTRO_ELIMINATION_DETAILS' | translate"></p>
+
     <h3 translate>INTRO_VOTES_COMPUTED_TITLE</h3>
     <p translate>INTRO_VOTES_COMPUTED_DETAILS</p>
+
     <h3 translate>INTRO_WHY_2_TYPES_TITLE</h3>
     <p translate>INTRO_WHY_2_TYPES_DETAILS</p>
+
     <h3 translate>INTRO_RULES_TITLE</h3>
     <p translate>INTRO_RULES_DETAILS</p>
+
     <h3 translate>INTRO_CONTESTANTS_TITLE</h3>
     <p translate>INTRO_CONTESTANTS_DETAILS</p>
+
     <h3 translate>INTRO_SOURCE_CODE_TITLE</h3>
-    <p><a href="https://github.com/matheuscamargo/photo-contest">https://github.com/matheuscamargo/photo-contest</a></p>
+    <p>
+        <a href="https://github.com/matheuscamargo/photo-contest">https://github.com/matheuscamargo/photo-contest</a>
+    </p>
 </div>
