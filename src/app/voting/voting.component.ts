@@ -7,6 +7,7 @@ import { ResultGroup } from '../final-order/result-group';
 import { EliminationAlgorithmService } from '../algorithms/elimination/elimination-algorithm.service';
 import { PhotosService } from '../photos.service';
 import { MergesortAlgorithmService } from '../algorithms/mergesort/mergesort-algorithm.service';
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-voting',
@@ -18,7 +19,7 @@ export class VotingComponent implements OnInit {
   @Input() photos: Photo[];
   @Input() algorithm: VotingAlgorithm;
 
-  private readonly numberOfPhotos = 12;
+  private readonly numberOfPhotos = environment.numberOfPhotos;
 
   public photoA: Photo;
   public photoB: Photo;
