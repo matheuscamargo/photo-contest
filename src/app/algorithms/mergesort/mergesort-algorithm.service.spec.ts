@@ -50,8 +50,8 @@ describe('MergesortAlgorithmService', () => {
     expect(service.getVoteOptions()).toEqual({optionA: 0, optionB: 1});
     service.voteFor(VoteSelection.OptionA);
     expect(service.getResults()).toEqual([
-      {elementIndex: 1, score: 0},
-      {elementIndex: 0, score: 1000},
+      {elementIndex: 1, score: 391},
+      {elementIndex: 0, score: 609},
     ]);
   });
 
@@ -61,8 +61,8 @@ describe('MergesortAlgorithmService', () => {
     expect(service.getVoteOptions()).toEqual({optionA: 0, optionB: 1});
     service.voteFor(VoteSelection.OptionB);
     expect(service.getResults()).toEqual([
-      {elementIndex: 0, score: 0},
-      {elementIndex: 1, score: 1000},
+      {elementIndex: 0, score: 391},
+      {elementIndex: 1, score: 609},
     ]);
   });
 
@@ -78,9 +78,9 @@ describe('MergesortAlgorithmService', () => {
     service.voteFor(VoteSelection.OptionA);
     // [2, 1, 0]
     expect(service.getResults()).toEqual([
-      {elementIndex: 2, score: 0},
-      {elementIndex: 1, score: 333},
-      {elementIndex: 0, score: 667},
+      {elementIndex: 2, score: 200},
+      {elementIndex: 1, score: 312},
+      {elementIndex: 0, score: 487},
     ]);
   });
 
@@ -99,9 +99,9 @@ describe('MergesortAlgorithmService', () => {
     service.voteFor(VoteSelection.OptionB);
     // [1, 0, 2]
     expect(service.getResults()).toEqual([
-      {elementIndex: 1, score: 0},
-      {elementIndex: 0, score: 333},
-      {elementIndex: 2, score: 667},
+      {elementIndex: 1, score: 200},
+      {elementIndex: 0, score: 312},
+      {elementIndex: 2, score: 487},
     ]);
   });
 
@@ -123,10 +123,10 @@ describe('MergesortAlgorithmService', () => {
     expect(service.getVoteOptions()).toEqual({optionA: 1, optionB: 2});
     service.voteFor(VoteSelection.OptionB);
     expect(service.getResults()).toEqual([
-      {elementIndex: 0, score: 0},
-      {elementIndex: 1, score: 167},
-      {elementIndex: 2, score: 333},
-      {elementIndex: 3, score: 500},
+      {elementIndex: 0, score: 114},
+      {elementIndex: 1, score: 177},
+      {elementIndex: 2, score: 277},
+      {elementIndex: 3, score: 432},
     ]);
   });
 
@@ -148,10 +148,10 @@ describe('MergesortAlgorithmService', () => {
     expect(service.getVoteOptions()).toEqual({optionA: 1, optionB: 2});
     service.voteFor(VoteSelection.OptionA);
     expect(service.getResults()).toEqual([
-      {elementIndex: 3, score: 0},
-      {elementIndex: 2, score: 167},
-      {elementIndex: 1, score: 333},
-      {elementIndex: 0, score: 500},
+      {elementIndex: 3, score: 114},
+      {elementIndex: 2, score: 177},
+      {elementIndex: 1, score: 277},
+      {elementIndex: 0, score: 432},
     ]);
   });
 
@@ -189,11 +189,11 @@ describe('MergesortAlgorithmService', () => {
     expect(service.getVoteOptions()).toEqual({optionA: 0, optionB: 4});
     service.voteFor(VoteSelection.OptionB);
     expect(service.getResults()).toEqual([
-      {elementIndex: 2, score: 0},
-      {elementIndex: 1, score: 100},
-      {elementIndex: 3, score: 200},
-      {elementIndex: 0, score: 300},
-      {elementIndex: 4, score: 400},
+      {elementIndex: 2, score: 68},
+      {elementIndex: 1, score: 106},
+      {elementIndex: 3, score: 165},
+      {elementIndex: 0, score: 258},
+      {elementIndex: 4, score: 403},
     ]);
   });
 });

@@ -48,8 +48,8 @@ describe('EliminationAlgorithmService', () => {
     expect(service.getVoteOptions()).toEqual({optionA: 0, optionB: 1});
     service.voteFor(VoteSelection.OptionA);
     expect(service.getResults()).toEqual([
-      {elementIndex: 1, score: 0},
-      {elementIndex: 0, score: 1000},
+      {elementIndex: 1, score: 333},
+      {elementIndex: 0, score: 667},
     ]);
   });
 
@@ -59,8 +59,8 @@ describe('EliminationAlgorithmService', () => {
     expect(service.getVoteOptions()).toEqual({optionA: 0, optionB: 1});
     service.voteFor(VoteSelection.OptionB);
     expect(service.getResults()).toEqual([
-      {elementIndex: 0, score: 0},
-      {elementIndex: 1, score: 1000},
+      {elementIndex: 0, score: 333},
+      {elementIndex: 1, score: 667},
     ]);
   });
 
@@ -73,9 +73,9 @@ describe('EliminationAlgorithmService', () => {
     expect(service.getVoteOptions()).toEqual({optionA: 2, optionB: 0});
     service.voteFor(VoteSelection.OptionA);
     expect(service.getResults()).toEqual([
-      {elementIndex: 1, score: 0},
-      {elementIndex: 0, score: 333},
-      {elementIndex: 2, score: 667},
+      {elementIndex: 1, score: 143},
+      {elementIndex: 0, score: 286},
+      {elementIndex: 2, score: 571},
     ]);
   });
 
@@ -91,10 +91,10 @@ describe('EliminationAlgorithmService', () => {
     expect(service.getVoteOptions()).toEqual({optionA: 2, optionB: 0});
     service.voteFor(VoteSelection.OptionA);
     expect(service.getResults()).toEqual([
-      {elementIndex: 3, score: 0},
-      {elementIndex: 1, score: 0},
-      {elementIndex: 0, score: 333},
-      {elementIndex: 2, score: 667},
+      {elementIndex: 3, score: 125},
+      {elementIndex: 1, score: 125},
+      {elementIndex: 0, score: 250},
+      {elementIndex: 2, score: 500},
     ]);
   });
 
@@ -113,11 +113,11 @@ describe('EliminationAlgorithmService', () => {
     expect(service.getVoteOptions()).toEqual({optionA: 4, optionB: 2});
     service.voteFor(VoteSelection.OptionA);
     expect(service.getResults()).toEqual([
-      {elementIndex: 1, score: 0},
-      {elementIndex: 0, score: 125},
-      {elementIndex: 3, score: 125},
-      {elementIndex: 2, score: 250},
-      {elementIndex: 4, score: 500},
+      {elementIndex: 1, score: 59},
+      {elementIndex: 0, score: 118},
+      {elementIndex: 3, score: 118},
+      {elementIndex: 2, score: 235},
+      {elementIndex: 4, score: 471},
     ]);
   });
 });

@@ -107,10 +107,9 @@ export class EliminationAlgorithmService implements VotingAlgorithm {
   }
 
   private normalizeScores(results: VoteResult[]): VoteResult[] {
-    let reducedResults = results.map(r => { return { elementIndex: r.elementIndex, score: Math.floor(r.score/2) } });
-    let totalScore = reducedResults.map(r => r.score).reduce((prev, next) => prev + next);
+    let totalScore = results.map(r => r.score).reduce((prev, next) => prev + next);
     let adjustFactor = this.totalDesiredScore / totalScore;
-    return reducedResults.map(r => { 
+    return results.map(r => { 
       return { elementIndex: r.elementIndex, score: Math.round(r.score * adjustFactor) };
     });
   }
