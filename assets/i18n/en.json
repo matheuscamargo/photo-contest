@@ -8,9 +8,7 @@
     "INTRO_ELIMINATION_BUTTON": "Vote {{eliminationQuantity}} times",
     "INTRO_ADDITIONAL_DETAILS": "Additional details",
     "INTRO_MERGESORT_TITLE": "Merge sort",
-    "INTRO_MERGESORT_DETAILS_1": "With the merge sort option, we will run a bottom up merge sort",
-    "INTRO_MERGESORT_DETAILS_2": "Wikipedia reference",
-    "INTRO_MERGESORT_DETAILS_3": "and you will be responsible for making each comparison. Since the number of comparisons will depend on the elements order before merging, that's why it may be necessary to run less than {{mergeSortQuantity}} comparisons. In the end, 1000 points in total will be spread linearly based on the resulting order (e.g. [0, 100, 200, 300, 400]).",
+    "INTRO_MERGESORT_DETAILS": "With the merge sort option, we will run a bottom up merge sort (<a href=\"https://en.wikipedia.org/wiki/Merge_sort\">Wikipedia reference</a>)and you will be responsible for making each comparison. Since the number of comparisons will depend on the elements order before merging, that's why it may be necessary to run less than {{mergeSortQuantity}} comparisons. In the end, 1000 points in total will be spread linearly based on the resulting order (e.g. [0, 100, 200, 300, 400]).",
     "INTRO_ELIMINATION_TITLE": "Elimination",
     "INTRO_ELIMINATION_DETAILS": "With the elimination option, we will run a single-elimination tournament (<a href=\"https://en.wikipedia.org/wiki/Single-elimination_tournament\">Wikipedia reference</a>) and you will be responsible for deciding the outcome of each face-off.  In the end, 1000 points in total will be given and each additional round grants double the points from the previous round (e.g. [0, 125, 125, 250, 500]).",
     "INTRO_VOTES_COMPUTED_TITLE": "How are the votes computed?",
@@ -22,10 +20,8 @@
     "INTRO_CONTESTANTS_TITLE": "Who are the contestants?",
     "INTRO_CONTESTANTS_DETAILS": "Matheus, Mut e Muzio :)",
     "INTRO_SOURCE_CODE_TITLE": "How can I run my own contest?",
-
     "PICKER_REMAINING_VOTES": "Remaining votes: {{quantityOfRemainingRounds}}",
     "PICKER_PICK_BEST_PHOTO": "Pick the best photo:",
-
     "FINAL_LAST_STEP": "One last step",
     "FINAL_OPEN_FORMS": "Open Google Forms",
     "FINAL_RESULT_EXPLANATION": "This is the resulting order based on your votes. The best photos are on the top and photos on the same level have the same score (if you chose \"Elimination\").",
