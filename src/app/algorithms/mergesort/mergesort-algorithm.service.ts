@@ -9,7 +9,11 @@ import { VoteResult } from '../vote-result';
 })
 
 export class MergesortAlgorithmService implements VotingAlgorithm {
-  readonly totalDesiredScore = 1000;
+  private readonly totalDesiredScore = 1000;
+
+  // With the number below, the 1st photo will have ~360 points both
+  // on elimination and merge sort.
+  private readonly magicNumberFor12Photos = 1.56;
 
   private isInitialized: boolean;
   private remainingRounds: number;
@@ -136,9 +140,15 @@ export class MergesortAlgorithmService implements VotingAlgorithm {
   }
 
   private normalizeScores(results: VoteResult[]) {
-    let totalScore = this.results.map(r => r.score).reduce((prev, next) => prev + next);
+    let adjustedResults = this.results.map(r => {
+        return { 
+          elementIndex: r.elementIndex,
+          score: Math.pow(this.magicNumberFor12Photos, r.score)
+        }
+      });
+    let totalScore = adjustedResults.map(r => r.score).reduce((prev, next) => prev + next);
     let adjustFactor = this.totalDesiredScore / totalScore;
-    this.results = this.results.map(r => { 
+    this.results = adjustedResults.map(r => { 
       return { elementIndex: r.elementIndex, score: Math.round(r.score * adjustFactor) };
     });
   }  
