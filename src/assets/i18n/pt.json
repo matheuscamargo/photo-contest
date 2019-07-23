@@ -21,7 +21,7 @@
     "INTRO_RULES_DETAILS": "Usar uma câmera analógica descartável com ~27 poses e tirar quaisquer fotos. Então, cada participante escolhe 4 fotos para o concurso.",
     "INTRO_CONTESTANTS_TITLE": "Quem são os participantes?",
     "INTRO_CONTESTANTS_DETAILS": "Matheus, Mut e Muzio :)",
-    "INTRO_SOURCE_CODE_TITLE": "Onde está o código fonte?",
+    "INTRO_SOURCE_CODE_TITLE": "Como posso fazer meu próprio concurso?",
 
     "PICKER_REMAINING_VOTES": "Votos restantes: {{quantityOfRemainingRounds}}",
     "PICKER_PICK_BEST_PHOTO": "Escolha a melhor foto:",
