@@ -1,14 +1,15 @@
 // Some ideas from https://github.com/milligram/milligram
 
 $color-initial: #fff !default;
-$color-primary: #303f9f !default;
-$color-secondary: #444 !default;
+$color-primary: #fdc566 !default;
+$color-secondary: #ffffff !default;
 
 body {
     color: $color-secondary;
 	font-family: "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
 	font-size: 1.1em;
 	line-height: 1.4;
+  background-color: #43423e;
 }
 
 button, a.button {	
